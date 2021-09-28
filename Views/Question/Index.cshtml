@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Question>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>FoC StackOverflow</h1>
+
+<div>@Model</div>
+
+@{
+    ICollection<Question> q = Model as ICollection<Question>;
+}
+
+@q
+
+@if (q.Count == 0)
+{
+    <div>Model is null</div>
+}
+else
+{
+    <div> Model is not null</div>
+}
+
+@foreach (Question question in Model)
+{
+    <div>@question.questionTitle</div>
+}
+
